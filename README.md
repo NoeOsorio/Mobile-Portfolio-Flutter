@@ -1,16 +1,11 @@
-# mobile_portfolio
+# Mobile Portfolio Flutter
 
-A new Flutter project.
+This a repo that will help organize all the different side projects that I work on.
 
-## Getting Started
+It was born because of the [#30DaysOfCode](https://developers.googleblog.com/2021/01/join-us-for-30daysofflutter.html) that Google is organizing.
 
-This project is a starting point for a Flutter application.
+# Projects
 
-A few resources to get you started if this is your first Flutter project:
+## Day 1
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
