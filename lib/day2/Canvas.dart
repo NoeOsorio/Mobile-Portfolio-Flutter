@@ -14,7 +14,7 @@ class Canva extends CustomPainter {
       ..color = Colors.blue
       ..strokeWidth = 5
       ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke;
+      ..style = PaintingStyle.fill;
 
     // DETERMINING THE PATH TO BE DRAWN
 
