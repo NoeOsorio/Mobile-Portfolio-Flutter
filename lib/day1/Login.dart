@@ -13,6 +13,7 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Container(
+            alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -106,14 +107,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 )),
-                Container(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    loginButton(false),
-                    loginButton(true),
-                  ],
-                )),
+                Container(child: welcomeButton(context)),
               ],
             ),
           ),
@@ -161,6 +155,37 @@ Widget loginButton(bool login) {
             fontWeight: FontWeight.w700,
             fontSize: 20,
             color: login ? Colors.white : Color(0xFF2196F3)),
+      ),
+    ),
+  );
+}
+
+Widget welcomeButton(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.of(context, rootNavigator: true).pushReplacementNamed("/day3");
+    },
+    child: Container(
+      margin: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                color: Color(0xFFE3F2FD),
+                offset: Offset(0, 0),
+                blurRadius: 30,
+                spreadRadius: 2)
+          ],
+          borderRadius: BorderRadius.circular(20),
+          gradient: LinearGradient(
+              stops: [.2, .9],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[Color(0xFF64B5F6), Color(0xFF2196F3)])),
+      child: Text(
+        "Enter",
+        style: TextStyle(
+            fontWeight: FontWeight.w700, fontSize: 20, color: Colors.white),
       ),
     ),
   );
