@@ -32,6 +32,11 @@ class Home extends StatelessWidget {
                         title: "Day 2",
                         subtitle: "Animation Widget"),
                     CustomButton(title: "Day 3", subtitle: "Home Page"),
+                    CustomButton(
+                      title: "Day 4",
+                      subtitle: "Pokemons",
+                      route: "/day4",
+                    ),
                   ],
                 ),
               ),
