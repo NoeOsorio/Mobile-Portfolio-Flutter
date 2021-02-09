@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_portfolio/Home.dart';
 import 'package:mobile_portfolio/day1/Login.dart';
 import 'package:mobile_portfolio/day2/Animations.dart';
-import 'package:mobile_portfolio/day4/Pokemons.dart';
+import 'package:mobile_portfolio/pokedex/PokedexUI.dart';
+import 'package:mobile_portfolio/pokedex/Pokemons.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         "/day3": (context) => Home(),
         "/day1": (context) => LoginPage(),
         "/day4": (context) => Pokemons(),
+        "/pokedex": (context) => PokedexUI(),
       },
       // home: LoginPage(),
     );
