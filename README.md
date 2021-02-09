@@ -40,3 +40,15 @@ Today I started implementing an async FutureBuilder of the https endpoint: https
 Wish me luck!
 
 ![Pokedex part 1](https://user-images.githubusercontent.com/36978686/107177439-7a6eec00-6997-11eb-8bd0-90a678f4279e.png)
+
+# Day 8
+
+OMG, my Pokédex is getting somewhere.
+
+✅ Data from API
+✅ Images from API
+✅ Color Palettes from each Image
+
+I know I have to work on colors, but hey, you can't tell me it is beautiful.
+
+![Pokedex v1](https://user-images.githubusercontent.com/36978686/107326907-da39c580-6a71-11eb-8317-f7a66c12ebff.png)
