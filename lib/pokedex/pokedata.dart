@@ -44,7 +44,7 @@ Future<List> getPokedata() async {
       "name": data["name"]
     });
   }
-  print(newPokedata);
+
   return newPokedata;
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_portfolio/pokedex/PokeCard.dart';
 import 'package:mobile_portfolio/pokedex/pokedata.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -25,7 +26,7 @@ class _PokedexUIState extends State<PokedexUI> {
     final orientation = MediaQuery.of(context).orientation;
 
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: Text(
@@ -48,23 +49,11 @@ class _PokedexUIState extends State<PokedexUI> {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
             itemBuilder: (BuildContext context, int index) {
-              return Container(
+              return PokeCard(
                 color: pokemonSnap.data[index]["color"],
-                padding: EdgeInsets.all(10),
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    pokemonSnap.data[index]["image"],
-                    Text(
-                      pokemonSnap.data[index]["name"],
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24,
-                          color: pokemonSnap.data[index]["textColor"]),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
+                name: pokemonSnap.data[index]["name"],
+                image: pokemonSnap.data[index]["image"],
+                textColor: pokemonSnap.data[index]["textColor"],
               );
             },
           );
