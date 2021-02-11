@@ -3,6 +3,8 @@ import 'package:mobile_portfolio/pokedex/PokeCard.dart';
 import 'package:mobile_portfolio/pokedex/pokedata.dart';
 import 'package:palette_generator/palette_generator.dart';
 
+import 'Pokemon.model.dart';
+
 class PokedexUI extends StatefulWidget {
   @override
   _PokedexUIState createState() => _PokedexUIState();
@@ -11,7 +13,6 @@ class PokedexUI extends StatefulWidget {
 class _PokedexUIState extends State<PokedexUI> {
   getID(String url) {
     List split = url.split("/");
-    print(split[split.length - 2]);
     return split[split.length - 2];
   }
 
@@ -41,7 +42,6 @@ class _PokedexUIState extends State<PokedexUI> {
         builder: (context, pokemonSnap) {
           if (pokemonSnap.connectionState == ConnectionState.none ||
               pokemonSnap.hasData == false) {
-            print(pokemonSnap.hasData);
             return Text("No pokemon found!");
           }
           return GridView.builder(
@@ -50,10 +50,11 @@ class _PokedexUIState extends State<PokedexUI> {
                 crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
             itemBuilder: (BuildContext context, int index) {
               return PokeCard(
-                color: pokemonSnap.data[index]["color"],
-                name: pokemonSnap.data[index]["name"],
-                image: pokemonSnap.data[index]["image"],
-                textColor: pokemonSnap.data[index]["textColor"],
+                pokemon: Pokemon.fromJson(pokemonSnap.data[index]),
+                // color: pokemonSnap.data[index]["color"],
+                // name: pokemonSnap.data[index]["name"],
+                // image: pokemonSnap.data[index]["image"],
+                // textColor: pokemonSnap.data[index]["textColor"],
               );
             },
           );

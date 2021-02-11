@@ -30,10 +30,19 @@ Future<List> getPokedata() async {
   List newPokedata = [];
   for (var data in pokedata) {
     String id = getID(data["url"]);
-    String imageURL =
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png";
-    Image image = Image.network(imageURL);
-    List<Color> color = await getImagePalette(NetworkImage(imageURL));
+    String imageURL;
+    Image image;
+    List<Color> color;
+    try {
+      imageURL =
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png";
+      image = Image.network(imageURL);
+      color = await getImagePalette(NetworkImage(
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png"));
+    } catch (e) {
+      color = await getImagePalette(NetworkImage(
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png"));
+    }
 
     newPokedata.add({
       "id": id,
@@ -60,9 +69,6 @@ Future<List<Color>> getImagePalette(ImageProvider imageProvider) async {
 
   return [
     paletteGenerator.dominantColor.color,
-    paletteGenerator.dominantColor.color !=
-            paletteGenerator.lightVibrantColor.color
-        ? paletteGenerator.lightVibrantColor.color
-        : Colors.white,
+    Colors.white,
   ];
 }

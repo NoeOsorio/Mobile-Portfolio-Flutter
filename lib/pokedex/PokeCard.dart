@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_portfolio/pokedex/PokemonData.dart';
 
-class PokeCard extends StatelessWidget {
-  final Color color;
-  final Color textColor;
-  final Image image;
-  final String name;
-  final String url;
+import 'Pokemon.model.dart';
 
-  const PokeCard(
-      {Key key, this.color, this.textColor, this.image, this.name, this.url})
-      : super(key: key);
+class PokeCard extends StatefulWidget {
+  final Pokemon pokemon;
 
+  const PokeCard({Key key, this.pokemon}) : super(key: key);
+
+  @override
+  _PokeCardState createState() => _PokeCardState();
+}
+
+class _PokeCardState extends State<PokeCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => PokemonData(
-                  color: color,
-                  textColor: textColor,
-                  image: image,
-                  name: name,
-                  url: url,
-                )));
+            builder: (context) => PokemonData(pokemon: widget.pokemon)));
       },
       child: Container(
         decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(10)),
+            color: widget.pokemon.color,
+            borderRadius: BorderRadius.circular(10)),
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(10),
         alignment: Alignment.center,
         child: Column(
           children: [
-            image,
-            Text(
-              name,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: textColor,
+            Expanded(
+              flex: 2,
+              child: widget.pokemon.image,
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(
+                widget.pokemon.name,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24,
+                  color: widget.pokemon.textColor,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
-              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
