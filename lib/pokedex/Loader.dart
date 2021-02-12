@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_portfolio/day2/Canvas.dart';
 import 'dart:math' as math;
 
-class AnimatedBox extends StatefulWidget {
+class PokeLoader extends StatefulWidget {
   @override
-  _AnimatedBoxState createState() => _AnimatedBoxState();
+  _PokeLoaderState createState() => _PokeLoaderState();
 }
 
-class _AnimatedBoxState extends State<AnimatedBox>
+class _PokeLoaderState extends State<PokeLoader>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
-
   AnimationController controller;
 
   @override
@@ -38,30 +36,24 @@ class _AnimatedBoxState extends State<AnimatedBox>
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: CustomPaint(
-          painter: Canva(
-              sides: (animation.value.floor().abs()) + 3,
-              radius: 100,
-              radians: animation.value),
-          child: Container(),
-        ),
-        // child: Container(
-        //   decoration: BoxDecoration(
-        //       color: Colors.black12,
-        //       borderRadius: BorderRadius.circular(animation.value)),
-        //   width: animation.value,
-        //   height: animation.value,
-        // ),
-      ),
-    );
+  void dispose() {
+    controller.dispose();
+    print("Dispose Loader");
+    super.dispose();
   }
 
   @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
+  Widget build(BuildContext context) {
+    return Transform.rotate(
+      angle: animation.value,
+      child: Container(
+        width: 100,
+        height: 100,
+        child: Image.asset(
+          "assets/images/pokeball.png",
+          fit: BoxFit.fitWidth,
+        ),
+      ),
+    );
   }
 }

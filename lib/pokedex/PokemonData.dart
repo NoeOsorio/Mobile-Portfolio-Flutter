@@ -44,7 +44,8 @@ class _PokemonDataState extends State<PokemonData> {
                 SliverPersistentHeader(
                   delegate: _SliverAppBarDelegate(
                     TabBar(
-                      labelColor: Colors.black87,
+                      indicatorColor: widget.pokemon.color,
+                      labelColor: widget.pokemon.color,
                       unselectedLabelColor: Colors.grey,
                       tabs: [
                         Tab(text: "Información"),

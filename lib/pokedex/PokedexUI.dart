@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_portfolio/pokedex/Loader.dart';
 import 'package:mobile_portfolio/pokedex/PokeCard.dart';
 import 'package:mobile_portfolio/pokedex/pokedata.dart';
 import 'package:palette_generator/palette_generator.dart';
@@ -42,7 +43,9 @@ class _PokedexUIState extends State<PokedexUI> {
         builder: (context, pokemonSnap) {
           if (pokemonSnap.connectionState == ConnectionState.none ||
               pokemonSnap.hasData == false) {
-            return Text("No pokemon found!");
+            return Center(
+              child: PokeLoader(),
+            );
           }
           return GridView.builder(
             itemCount: pokemonSnap.data.length,
