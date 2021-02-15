@@ -1,4 +1,9 @@
+import 'dart:collection';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:mobile_portfolio/pokedex/Loader.dart';
+import 'package:mobile_portfolio/pokedex/pokedata.dart';
 
 import 'Pokemon.model.dart';
 
@@ -19,7 +24,7 @@ class _PokemonDataState extends State<PokemonData> {
     return Scaffold(
       body: SafeArea(
         child: DefaultTabController(
-          length: 2,
+          length: 1,
           child: NestedScrollView(
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
@@ -48,8 +53,8 @@ class _PokemonDataState extends State<PokemonData> {
                       labelColor: widget.pokemon.color,
                       unselectedLabelColor: Colors.grey,
                       tabs: [
-                        Tab(text: "Información"),
-                        Tab(text: "Movimientos"),
+                        // Tab(text: "Información"),
+                        Tab(text: "Tipos"),
                       ],
                     ),
                   ),
@@ -58,7 +63,41 @@ class _PokemonDataState extends State<PokemonData> {
               ];
             },
             body: Center(
-              child: Text("Sample text"),
+              child: FutureBuilder(
+                future: getPokemonById(widget.pokemon.id),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return PokeLoader();
+                  } else if (snapshot.connectionState == ConnectionState.none) {
+                    return Container();
+                  }
+
+                  List<Widget> tipos = [];
+                  if (snapshot.data["types"] != null) {
+                    tipos = (snapshot.data["types"] as List)
+                        .map((e) => Container(
+                              padding: EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                  color: widget.pokemon.color,
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Text(
+                                (e["type"]["name"] as String).toUpperCase(),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 36,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ))
+                        .toList();
+                  }
+
+                  return Wrap(
+                    spacing: 10,
+                    children: tipos,
+                  );
+                },
+              ),
             ),
           ),
         ),

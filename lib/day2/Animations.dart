@@ -21,7 +21,6 @@ class _AnimatedBoxState extends State<AnimatedBox>
         AnimationController(duration: const Duration(seconds: 10), vsync: this);
     animation = Tween<double>(begin: -math.pi, end: math.pi).animate(controller)
       ..addListener(() {
-        print(animation.value);
         setState(() {
           // The state that has changed here is the animation object’s value.
         });

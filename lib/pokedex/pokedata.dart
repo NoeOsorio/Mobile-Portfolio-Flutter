@@ -1,4 +1,7 @@
+import 'dart:collection';
+import 'dart:convert';
 import 'dart:ui';
+import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
@@ -71,4 +74,14 @@ Future<List<Color>> getImagePalette(ImageProvider imageProvider) async {
     paletteGenerator.dominantColor.color,
     Colors.white,
   ];
+}
+
+Future<LinkedHashMap<String, dynamic>> getPokemonById(id) async {
+  var response = await fetchPokemonById(id);
+  final LinkedHashMap parsed = jsonDecode(response.body);
+  return parsed;
+}
+
+Future<http.Response> fetchPokemonById(id) async {
+  return http.get(Uri.https("pokeapi.co", "api/v2/pokemon/$id"));
 }

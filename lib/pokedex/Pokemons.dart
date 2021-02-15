@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 List pokemonList(String response) {
   final LinkedHashMap parsed = jsonDecode(response);
 
-  print(parsed["results"]);
   // return parsed.
   return parsed["results"] ?? [];
 }
@@ -25,8 +24,6 @@ class _PokemonsState extends State<Pokemons> {
   @override
   void initState() {
     super.initState();
-
-    // fetchPokemons().then((value) => print(value.body));
   }
 
   @override
@@ -44,7 +41,6 @@ class _PokemonsState extends State<Pokemons> {
                 return Text("No pokemon found!");
               }
 
-              // print(pokemonSnap.data.body.results);
               List pokemons = pokemonList(pokemonSnap.data.body);
               return ListView.builder(
                   itemCount: pokemons.length,

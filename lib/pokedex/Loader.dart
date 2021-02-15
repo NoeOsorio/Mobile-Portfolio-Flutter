@@ -19,7 +19,6 @@ class _PokeLoaderState extends State<PokeLoader>
         AnimationController(duration: const Duration(seconds: 10), vsync: this);
     animation = Tween<double>(begin: -math.pi, end: math.pi).animate(controller)
       ..addListener(() {
-        print(animation.value);
         setState(() {
           // The state that has changed here is the animation object’s value.
         });
@@ -38,7 +37,7 @@ class _PokeLoaderState extends State<PokeLoader>
   @override
   void dispose() {
     controller.dispose();
-    print("Dispose Loader");
+
     super.dispose();
   }
 

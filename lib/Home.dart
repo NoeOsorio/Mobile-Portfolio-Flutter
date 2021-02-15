@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                       route: "/day4",
                     ),
                     CustomButton(
-                      title: "Day 8",
+                      title: "Day 13",
                       subtitle: "Pokedex",
                       route: "/pokedex",
                     ),
@@ -110,16 +110,18 @@ class _CustomButtonState extends State<CustomButton> {
                     // style: Theme.of(context).textTheme.button,
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  // margin: EdgeInsets.all(10),
-                  child: Text(
-                    widget.subtitle,
-                    style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400),
-                    // style: Theme.of(context).textTheme.button,
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    // margin: EdgeInsets.all(10),
+                    child: Text(
+                      widget.subtitle,
+                      style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400),
+                      // style: Theme.of(context).textTheme.button,
+                    ),
                   ),
                 ),
                 Container(
