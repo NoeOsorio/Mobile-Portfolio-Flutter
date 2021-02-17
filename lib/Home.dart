@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
                       route: "/day4",
                     ),
                     CustomButton(
-                      title: "Day 13",
+                      title: "Day 8",
                       subtitle: "Pokedex",
                       route: "/pokedex",
                     ),
@@ -46,6 +46,11 @@ class Home extends StatelessWidget {
                       title: "Day 14",
                       subtitle: "Draw",
                       route: "/day14",
+                    ),
+                    CustomButton(
+                      title: "Day 15",
+                      subtitle: "Image Loader",
+                      route: "/day15",
                     ),
                   ],
                 ),

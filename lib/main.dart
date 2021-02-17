@@ -6,6 +6,8 @@ import 'package:mobile_portfolio/day2/Animations.dart';
 import 'package:mobile_portfolio/pokedex/PokedexUI.dart';
 import 'package:mobile_portfolio/pokedex/Pokemons.dart';
 
+import 'day15/ImageLoader.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
         "/day4": (context) => Pokemons(),
         "/pokedex": (context) => PokedexUI(),
         "/day14": (context) => Draw(),
+        "/day15": (context) => ImageLoader(),
       },
       // home: LoginPage(),
     );
