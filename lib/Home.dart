@@ -42,6 +42,11 @@ class Home extends StatelessWidget {
                       subtitle: "Pokedex",
                       route: "/pokedex",
                     ),
+                    CustomButton(
+                      title: "Day 14",
+                      subtitle: "Draw",
+                      route: "/day14",
+                    ),
                   ],
                 ),
               ),

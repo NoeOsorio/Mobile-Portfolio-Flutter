@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_portfolio/Home.dart';
 import 'package:mobile_portfolio/day1/Login.dart';
+import 'package:mobile_portfolio/day14/Draw.dart';
 import 'package:mobile_portfolio/day2/Animations.dart';
 import 'package:mobile_portfolio/pokedex/PokedexUI.dart';
 import 'package:mobile_portfolio/pokedex/Pokemons.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         "/day1": (context) => LoginPage(),
         "/day4": (context) => Pokemons(),
         "/pokedex": (context) => PokedexUI(),
+        "/day14": (context) => Draw(),
       },
       // home: LoginPage(),
     );
