@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class DrawCanvas extends CustomPainter {
   final List<Offset> offsets;
-
-  DrawCanvas(this.offsets) : super();
+  final Color paintColor;
+  DrawCanvas(this.offsets, this.paintColor) : super();
 
   bool shouldDrawPoint(int i) =>
       offsets[i] != null && offsets.length > i + 1 && offsets[i + 1] == null;
@@ -16,7 +16,7 @@ class DrawCanvas extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.blue
+      ..color = paintColor
       ..isAntiAlias = true
       ..strokeWidth = 6.0
       ..strokeCap = StrokeCap.round

@@ -46,7 +46,7 @@ class _DrawState extends State<Draw> {
         },
         child: Center(
           child: CustomPaint(
-            painter: DrawCanvas(points),
+            painter: DrawCanvas(points, Colors.blue),
             child: Container(),
           ),
         ),

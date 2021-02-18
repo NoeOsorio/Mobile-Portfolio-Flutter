@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_portfolio/day14/DrawCanvas.dart';
 
 class Lienzo extends StatefulWidget {
-  Lienzo({Key key}) : super(key: key);
+  Lienzo({Key key, this.paintColor = Colors.blue}) : super(key: key);
+
+  final Color paintColor;
   @override
   LienzoState createState() => LienzoState();
 }
@@ -43,7 +45,7 @@ class LienzoState extends State<Lienzo> {
       child: Container(
         color: Colors.transparent,
         child: CustomPaint(
-          painter: DrawCanvas(points),
+          painter: DrawCanvas(points, widget.paintColor),
           child: Container(),
         ),
       ),
